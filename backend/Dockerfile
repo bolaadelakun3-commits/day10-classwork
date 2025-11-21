@@ -6,7 +6,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # stage 2: run the build with eclpise
-FROM eclipse-tumerin:11-jre
+FROM eclipse-temurin:11-jre
 WORKDIR /app
 COPY --from=build /app/target/demo-1.0.0.jar app.jar
 EXPOSE 8080
